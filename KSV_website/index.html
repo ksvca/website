@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>KSV</title>
+        <link rel="icon" href="./images/ksv_logo.jpeg" type="image/icon type">
+        <script src="https://kit.fontawesome.com/f4b6bdc87c.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="ksv.css">
+    </head>
+    <body>
+        <div id="header">
+            <div class="container">
+                <nav>
+                    <img src="./images/ksv_logo.jpeg" class="logo">
+                    <ul id="sideMenu">
+                        <li><a href="#header">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <i class="fa-sharp fa-solid fa-xmark" onclick="closeMenu()"></i>
+                    </ul>
+                    <i class="fa-sharp fa-solid fa-bars" onclick="openMenu()"></i>
+                </nav>
+                <div class="headerText">
+                    <h3>welcome to</h3>
+                    <h1><span>KSV</span></h1>
+                    <p>Empowering Businesses with Tech-Driven Solutions</p>
+                    
+                </div>
+            </div>
+        </div>
+
+    <!-- ---------- About ---------- -->
+        <div id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="aboutColumn1"><img src="./images/Software-Dev.png"></div>
+                    <div class="aboutColumn2">
+                        <h1 class="subTitle">About us</h1>
+                        <br>
+                        <p class="aboutMeContent">Welcome to KSV, your dedicated partner in revolutionizing the way businesses manage their finances. With a core focus on accounting solutions, we bring a wealth of experience and innovation to the intersection of technology and finance. <br>
+                            <br>
+                            <span>Our Mission :</span> <br> 
+                            At KSV, our mission is to redefine the landscape of accounting by providing cutting-edge software solutions that simplify financial processes, enhance accuracy, and empower businesses to make informed decisions. We are committed to delivering unparalleled value to our clients through tailor-made accounting solutions. <br>
+                            We specialize in harnessing the power of advanced technologies to transform accounting processes. Our solutions are designed to optimize efficiency, reduce errors, and provide real-time insights, giving your business a competitive edge in the financial landscape.
+                        </p>
+                        <div class="tabTitles">
+                            <p class="tabLinks" onclick="openTab('ceo')">CEO</p>
+                            <p class="tabLinks" onclick="openTab('services')">Services</p>
+                        </div>
+                        <div class="tabContents" id="ceo">
+                            <ul>
+                                <li><span>CA Srinivasan M.Com ,FCA</span></li>
+                            </ul>
+                        </div>
+                        <div class="tabContents" id="services">
+                            <ul>
+                                <li><span>We specialize in harnessing the power of advanced technologies to transform accounting processes. Our solutions are designed to optimize efficiency, reduce errors, and provide real-time insights, giving your business a competitive edge in the financial landscape.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+
+    <!-- ---------- Contact ---------- -->
+        <div id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="contactLeft">
+                        <h1 class="subTitle">Contact Us</h1>
+                        <p><i class="fa-solid fa-envelope"></i>info01.ksv@gmail.com</p>
+                        <p><i class="fa-solid fa-square-phone"></i> 6383 038 043</p>
+                        <div class="socialMediaIcons">
+                            <a href=""><i class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyRight">Copyright © KSV - Contact us at info01.ksv@gmail.com</div>
+        </div>
+
+    <!-- ---------- About Me TabTitles ---------- -->
+        <script>
+
+            var tabLinks=document.getElementsByClassName("tabLinks");
+            var tabContents=document.getElementsByClassName("tabContents");
+            function openTab(tabName){
+                for(tabLink of tabLinks){
+                    tabLink.classList.remove("activeLink");
+                }
+                for(tabContent of tabContents){
+                    tabContent.classList.remove("activeTab");
+                }
+                event.currentTarget.classList.add("activeLink");
+                document.getElementById(tabName).classList.add("activeTab");
+            }
+
+        </script>
+
+    <!-- ---------- Side Menu  ---------- -->
+        <script>
+
+            var sideMenu=document.getElementById("sideMenu");
+            function openMenu(){
+                sideMenu.style.right="0";
+            }
+            function closeMenu(){
+                sideMenu.style.right="-200px"
+            }
+
+        </script>
+
+<script>
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzUK6dc9I2b2-tTGLn2Q6ge699Wv8UIYj4BYsJEGASz90viEbOqQtQjfReXLyvekuUr5g/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg=document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML="Message sent successfully"
+            setTimeout(function(){msg.innerHTML=""},5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+
+  </script>
+    </body>
+</html>
